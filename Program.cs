@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Net;
 using System.Net.Mail;
 using System.Threading;
@@ -14,6 +15,9 @@ namespace LibraryCheckConsoleApp
         static void Main(string[] args)
         {
             Console.WriteLine("Check Library console app start!");
+
+            // we need to set cultureInfo on Slovenian becouse of date format 25.5.2022
+            CultureInfo = new CultureInfo("sl-SI");
 
             // build appsetings.json config builder
             Config = new ConfigurationBuilder()
@@ -30,6 +34,7 @@ namespace LibraryCheckConsoleApp
             }
         }
 
+        public static CultureInfo CultureInfo { get; set; }
         public static IConfiguration Config { get; set; }
 
         public static IWebDriver Driver { get; set; }
@@ -95,7 +100,7 @@ namespace LibraryCheckConsoleApp
                 IWebElement dateCell = bookElement.FindElement(By.XPath(".//td[2]"));
                 string dateStr = dateCell.Text;
 
-                DateTime dueDate = DateTime.Parse(dateStr);
+                DateTime dueDate = DateTime.Parse(dateStr, CultureInfo);
 
                 int diff = (dueDate - now).Days + 1;
 

@@ -1,17 +1,24 @@
 # LibraryCheckConsoleApp
+```sh
+cd C:\Users\user\source\repos\LibraryCheckConsoleApp
+```
+```sh
+dotnet publish -r linux-arm
+```
+```sh
+scp -r bin\Debug\netcoreapp3.1\linux-arm\publish jan@192.168.0.101:/usr/local/bin/apps/LibraryCheckConsoleApp
+```
 
-goto: C:\Users\user\source\repos\LibraryCheckConsoleApp
-
--> dotnet publish -r linux-arm
-
-goto: C:\Users\user\source\repos\LibraryCheckConsoleApp\bin\Debug\netcoreapp3.1\linux-arm
-
--> >scp -r publish jan@192.168.0.101:/usr/local/bin/apps/LibraryCheckConsoleApp
-
-(
-rights need to be set for folder apps on RPI 
--> cd /usr/local/bin
--> sudo chmod -R 777 apps
-)
+>Prerequest:
+>rights need to be set for folder apps on RPI 
+> `cd /usr/local/bin`
+> `sudo chmod -R 777 apps`
 
 Now all publish files were copied to RPI.
+
+set appsetings.json to chromium driver: **/usr/lib/chromium-browser/chromedriver**
+
+>Prerequest: webdriver
+>rights need to be set for folder apps on RPI 
+> Install webdriver `sudo apt-get install chromium-chromedriver`
+> After that webdriver is installed: **/usr/lib/chromium-browser/chromedriver**
