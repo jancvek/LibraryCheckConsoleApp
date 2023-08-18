@@ -23,4 +23,4 @@ set appsetings.json to chromium driver: **/usr/lib/chromium-browser/**
 > Install webdriver `sudo apt-get install chromium-chromedriver`
 > After that webdriver is installed: **/usr/lib/chromium-browser/chromedriver**
 
-You can run it with webmin app -> go to scheduled cron jobs and run it
+You can run it with webmin app -> go to scheduled cron jobs and run it (https://192.168.0.101:10000/)
