@@ -22,3 +22,5 @@ set appsetings.json to chromium driver: **/usr/lib/chromium-browser/**
 >rights need to be set for folder apps on RPI 
 > Install webdriver `sudo apt-get install chromium-chromedriver`
 > After that webdriver is installed: **/usr/lib/chromium-browser/chromedriver**
+
+You can run it with webmin app -> go to scheduled cron jobs and run it
